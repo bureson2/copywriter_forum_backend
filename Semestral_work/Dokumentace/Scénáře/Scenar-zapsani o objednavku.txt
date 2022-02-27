@@ -1,0 +1,47 @@
+*Prihlaseni
+POST: http://localhost:8080/copyto/login/log
+{
+    "email" : "Ahoj@nejheslo.com",
+    "password" : "123456"
+}
+
+*pristup do seznamu uzivatelu odepren
+GET: http://localhost:8080/copyto/rest/users
+
+*pristup do seznamu kategorii povolen
+GET: http://localhost:8080/copyto/rest/categories
+
+*zobrazeni zakazek pro danou kategorii
+*GET: http://localhost:8080/copyto/rest/categories/id/4/orders
+
+*Vytvoreni order containeru
+POST: http://localhost:8080/copyto/rest/containers/
+{}
+
+*Pristup do seznamu vsech zakazkovych containeru zamitnut
+GET: http://localhost:8080/copyto/rest/containers/
+
+*odhlaseni
+GET: http://localhost:8080/copyto/logout
+
+
+*Prihlaseni jako copywriter
+POST: http://localhost:8080/copyto/login/log
+{
+   "email":"Majkl@jefajn.cy",
+   "password":"123456"
+}
+
+*Prohlednuti vsech zakazek, ktere na foru byly zadany
+GET: http://localhost:8080/copyto/rest/orders
+
+
+*Zobrazeni dostupnych zakazek
+GET: http://localhost:8080/copyto/rest/orders/available
+
+*Zapsani o order
+PUT: http://localhost:8080/copyto/rest/copywriter/user/951/order/2
+
+GET: http://localhost:8080/copyto/logout
+
+

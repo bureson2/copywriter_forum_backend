@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" style="background: url('https://sun6-23.userapi.com/impg/gsfvqyNFvNYssOJ0mntcBlwEh495QSXtWiAQoQ/zXApjStr82A.jpg?size=1845x913&quality=96&sign=ec9fbca744d4005955c05a04b33e914a&type=album') center no-repeat;
+      -webkit-background-size: cover; background-size: cover; display: flex; flex-direction: column; justify-content: center; width: 100%; height: 100vh;">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Sign Up - CodeJava</title>
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script th:src="@{/resources/pwstrength.js}"></script>
+</head>
+<body>
+<div class="container text-center">
+    <form th:action="@{registration/process_register}" th:object="${user}"
+          method="post">
+        <div class="sign_up">
+            <h1 style="margin-left: 90px">Sign Up</h1>
+            <div class="form-group row">
+
+                <div class="col-8">
+                    <label>
+                        <input id="firstName" type="text" th:field="*{firstName}" class="form-control" required placeholder="Enter your firstname:" autofocus />
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="col-8">
+                    <label>
+                        <input id="lastName" type="text" th:field="*{surname}" class="form-control" required placeholder="Enter your surname:" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="col-8">
+                    <label>
+                        <input id="password" type="password" name="password" th:field="*{password}" class="form-control"
+                               required minlength="1" maxlength="10" placeholder="Enter your password:"/>
+                    </label>
+                    <span id="passwordError" class="alert alert-danger col-sm-4"></span>
+                </div>
+            </div>
+
+            <div class="form-group row" >
+                <div class="col-8">
+                    <label>
+                        <input id="matchPassword" name="matchingPassword" type="password" th:field="*{matchingPassword}" class="form-control"
+                               required minlength="1" maxlength="10" placeholder="Enter your password again:"/>
+                    </label>
+                    <span id="globalError" class="alert alert-danger col-sm-4" ></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="col-8">
+                    <label for="email">
+                        <input id="email" type="email" th:field="*{email}" class="form-control" required placeholder="Enter your email:" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="col-8">
+                    <label>
+                        <input type="text" th:field="*{mobile}" class="form-control" required placeholder="Enter your telephone:"/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label" style="margin: 20px 0 20px 90px;">Choose role: </label>
+                <div class="col-8">
+                    <select th:field="*{role}" name="role" id="role" class="form-select" aria-label="Default select example" >
+                        <option value="copywriter">Copywriter</option>
+                        <option value="client">Client</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script th:inline="javascript">
+    var serverContext = [[@{/}]];
+
+        $(document).ready(function () {
+
+            $(":password").keyup(function(){
+                if($("#password").val() != $("#matchPassword").val()){
+                    $("#globalError").show().html("password doesn't match");
+                }else{
+                    $("#globalError").html("").hide();
+                }
+            });
+
+            $('#password').pwstrength(options);
+        });
+</script>
+
+</body>
+<style>
+
+    .sign_up select{
+        border: 3px solid white;
+        box-shadow: none;
+        border-radius: 20px;
+        padding: 14px 10px;
+        width: 350px;
+        font-size: medium;
+    }
+
+    .sign_up select:focus{
+
+        border-color: #88BE92;
+        background-color: #88BE92;
+        border-radius: 5px;
+        color: white;
+    }
+
+    .sign_up label{
+        margin: 20px 0 20px 35px;
+        color: white;
+        font-size: 20px;
+    }
+    .sign_up h1{
+        color: white;
+        margin: 0 0 15px 50px;
+        font-size: 300%;
+    }
+    .sign_up{
+        width: 500px;
+        padding: 30px;
+        position: absolute;
+        padding-left: 10px;
+        top: 7%;
+        left: 7%;
+        box-shadow: none;
+
+        text-align: center;
+        border-radius: 100px;
+        background:#C1DECA;
+    }
+
+    .sign_up label, .sign_up h1{
+        display: block;
+        margin: 0 0 0 35px;
+        text-align: left;
+
+    }
+
+    .sign_up input[type = 'text'], .sign_up input[type = 'email'], .sign_up input[type = 'password'] {
+        background: none;
+        display: block;
+        margin: 10px auto 0 auto;
+        text-align: left;
+        border: none;
+        border-bottom: 3px solid white;
+        color: #3F5743;
+        padding: 14px 10px;
+        width: 350px;
+        box-shadow: none;
+        outline: none;
+
+        transition: 0.4s;
+        font-size: medium;
+
+
+    }
+
+    .sign_up input[type = 'text']:focus, .sign_up input[type = 'email']:focus, .sign_up input[type = 'password']:focus {
+        width: 400px;
+        border-color: #88BE92;
+        background-color: #88BE92;
+        border-radius: 5px;
+
+    }
+
+    .sign_up button{
+
+        display: block;
+        font-size: medium;
+        margin: 20px auto 0 auto ;
+        text-align: center;
+        border: 3px solid white;
+        color: #3F5743;
+        background-color: white;
+        padding: 14px 10px;
+        width: 350px;
+        outline: none;
+
+        border-radius: 20px;
+
+        transition: 0.4s;
+    }
+
+    .sign_up button:hover{
+        background: #88BE92;
+        border-color: #88BE92;
+        color: white;
+    }
+</style>
+</html>

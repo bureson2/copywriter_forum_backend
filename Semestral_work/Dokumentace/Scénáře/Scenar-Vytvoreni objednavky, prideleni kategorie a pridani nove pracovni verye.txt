@@ -1,0 +1,58 @@
+http://localhost:8080/copyto/login/log
+{
+   "email":"ear-admin@kbss.felk.cvut.cz",
+   "password":"hi"
+}
+--------------------------------------------------------------------
+1) create category POST http://localhost:8080/copyto/rest/categories/
+
+{
+    "name": "category1"
+}
+----------------------------------------------------------------------------
+2) create orderContainer POST http://localhost:8080/copyto/rest/containers/
+
+{
+}
+-----------------------------------------------------------------------
+3) put order in container PUT http://localhost:8080/copyto/rest/orders/id-container/901
+
+{
+    "deadline":"2023-10-01T09:45:00.000+02:00",
+    "link":"google.com",
+    "price":"10000"
+}
+-----------------------------------------------------------------------------
+4) add category to order PUT http://localhost:8080/copyto/rest/categories/id/752/order/902
+==============
+show orders by category
+GET http://localhost:8080/copyto/rest/categories/id/752/orders
+==============
+------------------------------------------------------------------------------
+5) set asignee to order PUT http://localhost:8080/copyto/rest/client/id-assignee/402/id-container/901
+--------------------------------------------------------------------------------
+6) create version POST http://localhost:8080/copyto/rest/versions/workplace-id/903
+
+{
+    "title": "Hello,",
+    "text": "World!"
+}
+
+============================
+show all versions
+GET http://localhost:8080/copyto/rest/versions/id-workplace/903
+============================
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+

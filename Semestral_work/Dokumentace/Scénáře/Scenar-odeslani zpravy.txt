@@ -1,0 +1,39 @@
+*Prihlaseni k vytvorenemu uzivateli
+POST: http://localhost:8080/copyto/login/log
+
+{
+    "email" : "Majkl@jefajn.cy",
+    "password" : "123456"
+}
+
+*Pokus o zobrazeni vsech konverzaci, bez admin uctu bez pristupu
+GET: http://localhost:8080/copyto/rest/conversations
+
+*Zobrazeni vlastnich konverzaci a jejich zprav
+GET: http://localhost:8080/copyto/rest/conversations/id-user/951
+
+*Poslani zpravy uzivateli
+POST: http://localhost:8080/copyto/rest/messages/receiver-id/2/text/Nahodna zprava
+
+{
+	
+}
+
+*Pokus o zobrazeni konverzace uzivatele, kteremu bylo psano vyse
+GET: http://localhost:8080/copyto/rest/conversations/id-user/2
+
+*Zobrazeni konverzace pro kontrolu nove prichozi zpravy
+GET: http://localhost:8080/copyto/rest/conversations/id-user/951
+
+*Odhlaseni
+GET: http://localhost:8080/copyto/logout
+
+*Prihlaseni jako admin
+POST: http://localhost:8080/copyto/login/log
+{
+    "email" : "ear-admin@kbss.felk.cvut.cz",
+    "password" : "hi"
+}
+
+*Zobrazeni vsech konverzaci
+GET: http://localhost:8080/copyto/rest/conversations

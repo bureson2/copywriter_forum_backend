@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      style="background: url('https://sun9-39.userapi.com/impg/0xFGjifC0ak5P28RwZ0GRdBXpRX9QQXp-dytZg/6af7oePFcaE.jpg?size=2560x1156&quality=96&sign=45f2e06758f97eaaec0462322bafbee9&type=album') center no-repeat;
+      -webkit-background-size: cover; background-size: cover; display: flex; flex-direction: column; justify-content: center; width: 100%; height: 100vh;">
+<head>
+    <meta charset="UTF-8">
+    <title>CopyTo</title>
+</head>
+<body style="margin: 10px; font-family: Agency FB, sans-serif;  line-height: 1.6; font-size: 25px;">
+    <div class="index_intro" style="width: 100%; color: white; font-size: 3.5rem; margin: 0 auto; text-align: center; line-height: 1; padding-bottom: 170px;">
+        <div class="index_intro_title">
+                <h1 th:if="${name != null}" style="margin: 0; padding-top: 110px">Welcome, <span th:text="${name}"></span>!</h1>
+                <h1 th:if="${name == null}" style="margin: 0; padding-top: 110px">Welcome to Copyto!</h1>
+                <p class="description" style="margin: 30px">Get the exact content you needed</p>
+        </div>
+        <div class="links">
+            <button id="login" onclick="window.location.href='http://localhost:8080/copyto/login'" type="button">Login</button>
+            <button id="register" onclick="window.location.href='http://localhost:8080/copyto/registration'" type="button">Register now!</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    /* CSS */
+    #login, #register {
+        align-items: center;
+        background: #FFFFFF;
+        border: 0 solid #E2E8F0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        box-sizing: border-box;
+        color: #1A202C;
+        display: inline-flex;
+        font-family: Inter, sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        height: 56px;
+        justify-content: center;
+        line-height: 24px;
+        overflow-wrap: break-word;
+        padding: 24px;
+        text-decoration: none;
+        width: auto;
+        border-radius: 8px;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        margin: 20px;
+    }
+</style>

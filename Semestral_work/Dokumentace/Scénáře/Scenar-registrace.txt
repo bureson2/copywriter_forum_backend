@@ -1,0 +1,23 @@
+REGISTRATION 
+
+POST http://localhost:8080/copyto/registration/reg
+
+{
+    "firstName" : "Nifffcholas",
+    "surname" : "Franfffffek",
+    "password" : "badheslo",
+    "matchingPassword" : "badheslo",
+    "email" : "badEma21212ifefefefeldqwd@csdcsc",
+    "mobile" : "123456789",
+    "role" : "client"
+}
+
+opetovna registrace vyvola chybu, protoze dany email je jiz obsazen
+
+
+
+
+
+
+
+

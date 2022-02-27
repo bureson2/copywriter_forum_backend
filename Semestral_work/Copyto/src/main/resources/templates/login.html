@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" style="background: url('https://sun9-3.userapi.com/impg/lJr2GP2ZXf8jDZddvFq9V2Bl1KWNaukuTAnwdw/IGMx3WudshQ.jpg?size=1863x909&quality=96&sign=27774d8088dd26e866617a218b7bad76&type=album') center no-repeat;
+      -webkit-background-size: cover; background-size: cover; display: flex; flex-direction: column; justify-content: center; width: 100%; height: 100vh;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Login - Copyto</title>
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+
+</head>
+<body>
+<div class="container-fluid text-center login_intro">
+
+    <form th:action="@{/login}" method="post">
+        <div class="sign_in">
+            <div th:if="${param.error}">
+                <p class="validator_message">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+            </div>
+
+            <div th:if="${param.logout}">
+                <p class="validator_message">You have been logged out.</p>
+            </div>
+
+            <div>
+                <h1 class="login_title" >Copyto</h1>
+                <p>
+                    <label>
+                        <input type="email" name="email" class="form-control" placeholder="E-mail" required autofocus/>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="password" name="password" class="form-control" placeholder="Password" required />
+                    </label>
+                </p>
+                        <button id="register" onclick="window.location.href='http://localhost:8080/copyto/registration'" type="button">Registration</button>
+                    <button type="submit" value="Login" class="btn btn-primary">Submit</button>
+        </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+
+<style>
+
+    .validator_message {
+        background-color: #EAB08C;
+        padding: 25px 35px 25px 35px;
+        border-radius: 50px;
+
+        font-family: "Tenor Sans", sans-serif;
+        font-size: large;
+        color: white;
+
+    }
+    .sign_in{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        width: 400px;
+        padding: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #C1DECA;
+        text-align: center;
+        border-radius: 100px;
+
+    }
+
+    .sign_in h1, .sign_up h1{
+        color: white;
+        margin: 0 0 50px 0;
+        font-size: 500%;
+    }
+
+    .sign_in input[type = 'text'], .sign_in input[type = 'password'], .sign_in input[type = 'email'], .sign_in button{
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 3px solid white;
+        color: white;
+        padding: 14px 10px;
+        width: 250px;
+        outline: none;
+
+        border-radius: 24px;
+        transition: 0.4s;
+        font-size: medium;
+    }
+    .sign_in input[type = 'email']:focus, .sign_in input[type = 'password']:focus{
+        width: 300px;
+        border-color: #88BE92;
+        background-color: #88BE92;
+        text-align: center;
+        font-size: medium;
+
+    }
+
+    .sign_in button{
+        color: #88BE92;
+        background-color: white;
+        width: 250px;
+
+        cursor: pointer;
+    }
+    .sign_in button:hover{
+        background: #88BE92;
+        border-color: #88BE92;
+        color: white;
+    }
+</style>
